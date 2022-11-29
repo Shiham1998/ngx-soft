@@ -1,0 +1,129 @@
+<!-- <nav class="navbar" style="display: flex;">
+  <i class="las la-arrow-left left" routerLink="/layout"> <a class="navbar-brand"
+      style="color:white;font-weight:bold;">Product List</a>
+  </i>
+  <form class="form-inline" style="float: right;" [formGroup]="searchitem">
+      
+    <i class="las la-search" (click) ="searchName()"  style="font-size: 20px;"></i> <input type="text" (keyup) ="list()" placeholder="Search.." formControlName="search_name" name="search" style="border-radius: 15px;border-color: #A11F21;">
+</form>
+</nav>  -->
+<!-- <nav class="navbar" style="display: flex;">
+  <i class="las la-arrow-circle-left arrow" routerLink="/layout" style="font-size: 30px;margin-right: 24px;font-weight: bold;float: left;"> <a class="navbar-brand" style="color: white;font-weight:bold;margin-bottom: 19%;font-size: 28px;margin-left: 3%;">Product List</a></i>
+     <form class="form-inline" style="float: right;" [formGroup]="searchitem" style="margin-right: 1%;">
+         <i class="las la-search" (click) ="searchName()"  style="font-size: 20px;"></i> <input type="text" (keyup) ="list()" placeholder="Search.." formControlName="search_name" name="search" style="border-radius: 15px;border-color: #A11F21;">
+     </form>
+ </nav> -->
+<nav class="navbar" style="display: flex;">
+  <i class="las la-arrow-circle-left arrow" routerLink="/layout"
+    style="font-size: 30px;margin-right: 4px;font-weight: bold;float: left;"> <a class="navbar-brand"
+      style="color: white;font-weight:bold;margin-bottom: 19%;font-size: 25px;margin-left: 3%;">Product</a></i>
+  <form class="form-inline" style="float: right;" [formGroup]="searchitem" style="margin-right: 1%;">
+
+    <i class="las la-search" (click)="searchName()" style="font-size: 20px;"></i> <input type="text" (keyup)="list()"
+      placeholder="Search.." formControlName="search_name" name="search"
+      style="border-radius: 15px;border-color: #A11F21;">
+  </form>
+</nav>
+<div class="container">
+  <!---First Card start-->
+  <div *ngFor="let item of itemlistdata;" >
+    <div class="row justify-content-center" style="margin-top:5px;"  >
+      
+      <div class="col-sm-8" > 
+          <div class="card" style="max-width: 100%;">
+            <div class="card-header" id="topBand">
+              <h5 class="card-title"> <span id="edit2"> PC - #000 {{item.item_code}} </span><i class="las la-eye"
+                  id="edit1" routerLink="/viewitem/{{item.id}}"></i><i class="las la-trash-alt" href="#ConfirmModal"
+                  data-toggle="modal" id="edit1" (click)="Passidfromdeletemodal(item.id)"></i> <i class="las la-pen"
+                  id="edit1" routerLink="/edititem/{{item.id}}"></i> </h5>
+            </div>
+            
+            <div class="row g-0">
+              <div class="col-sm-5"  id="imgdiv"  >
+               
+             <!-- <img class="card-img-top h-75 w-75"  src="assets\image\no-image.png"  alt="Cinque Terre" id="image"> -->
+                <img [src]="preview" [src]="getimage(item.id,item.productimage)" class="preview" alt="Your profile" style="border-radius: 100px;width: 200px;height: 200px;"/>
+              </div>
+                <div class="col-sm-7" style="margin-top: 10px;" id="contentdiv">
+                  <div class="row" style="padding-left: 12px;">
+                    <p> Product Name : <label id="lblItemName">{{item.item_name}}</label></p>
+                  </div>
+                  <div class="row" style="padding: 0px;">
+                    <div class="col-md-6">
+                      <p >Brand : <label id="lblItemName">{{item.brand}}</label></p> 
+                    </div>
+                    <div class="col-md-6">
+                      <p>Group :  <label id="lblGroup">{{item.group}}</label> </p>
+                    </div>
+                  </div>
+                  <div class="row" style="padding: 0px;">
+                    <div class="col-md-6">
+                      <p >M.S.P : <label id="lblMinSalePrice">{{item.min_sale_price}}</label></p>
+                    </div>
+                    <div class="col-md-6">
+                      <p> Discount : <label id="lblCustDiscount">{{item.customer_discount}}</label> </p>
+                    </div>
+                  </div>
+                  <div class="row" style="padding: 0px;">
+                    <div class="col-md-6">
+                      <p >M.R.P : <label id="lblMRP">{{item.mrp}}</label></p>
+                    </div>
+                    <div class="col-md-6">
+                      <p> Current Stock : <label id="lblCurrentStock">{{item.current_stock}}</label></p>
+                    </div>
+                  </div>
+                  <div class="row" style="padding: 0px;">
+                    <div class="col-md-8">
+                      <p>GST : <label id="lblGST">{{item.GST}}%</label></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    <div>
+    </div>
+  </div>
+ 
+  <!-- delete popup show for first time clicking a list delete button -->
+  <div id="ConfirmModal" class="modal" *ngFor="let item of itemlistdata;">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header flex-column" data-target=".bd-example-modal-sm">
+          <h4 class="modal-title"> Are you sure?</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Do you really want to delete records? </p>
+          <p>This process cannot be undone.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Cancel</button>
+          <button type="btn" class="btn btn-outline-danger" (click)="deleteitemlists(deltitemId_)" data-toggle="modal"
+            data-target="#SuccessModalDelete" data-dismiss="modal" style="background-color: #A11F21;">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div #SuccessModalDelete id="SuccessModalDelete" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-body">
+          <i class="fa fa-info-circle fa-5x center" aria-hidden="true"></i>
+          <p id="smsg">Item Details Deleted successfully</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---First Card End-->
+  <!---Plus icon start-->
+  <a class="float" routerLink="/additem">
+    <i class="la la-plus my-float"></i>
+  </a>
+  <!---Plus icon End-->
+</div>
+
+<!-- <img [src]="preview" class="preview" alt="Your profile" style="border-radius: 100px;width: 50px;height: 50px;"/> -->

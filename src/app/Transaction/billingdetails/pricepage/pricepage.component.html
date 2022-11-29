@@ -1,0 +1,118 @@
+<!-----------------Navbar Start------------------->
+<nav class="navbar" style="display: flex;">
+  <h4 id="head1" routerLink="/billingdetails" style="cursor: pointer;"> <i class="las la-arrow-circle-left arrow" style="cursor: pointer;"></i>Cart</h4>
+  <div class="spacer" style="flex:1 1 auto"></div>
+  <i class="las la-trash trashicon"></i>
+  <i class="las la-folder-plus foldericon"></i>
+</nav>
+<!-----------------Navbar End------------------->
+<div class="container mb-5 align-content-center" style="margin-left: 8%;">
+  <div class="d-flex justify-content-center row " *ngFor="let item of itemlistdata">
+    <div class="col-sm-8">
+
+      <div class="row p-2 bg-white border rounded mt-2" style="width: 90%;">
+
+        <div class="col-sm-3 mt-4"><img class="img-fluid img-responsive rounded product-image"
+            src="https://i.imgur.com/h1i9YBt.png" width="50px"></div>
+        <div class="col-sm-4 mt-4 ">
+          <h5 style="font-weight: bold;"><strong>{{item.item_name}}</strong></h5>
+
+          <div class="mt-1 mb-1 spec-1"><span style="font-weight: bold;color: black;">₹ {{item.mrp}}</span>
+            <span style="margin-left: 5%;font-weight: bold;"> <a href=# data-bs-toggle="modal"
+                data-bs-target="#exampleModal1" style="color: brown;">Edit
+                Price</a></span>
+          </div>
+          <div class="mt-1 mb-1 spec-1"><span class="badge text-bg" contenteditable="true"
+              style="font-size: 20px;background-color: brown;">Discount:0.00</span></div>
+          <p class="text-justify text-truncate para mb-0 mt-3" style="font-weight: bold;">
+            Sub-Total:200.00<br><br></p>
+          <i class="las la-trash-alt trash">
+            <span id="delete">Delete</span></i>
+        </div>
+        <div class="align-items-center align-content-center col-sm-3 border-left mt-7 ml-9">
+          <div class="rate mt-5" style="text-align:center;margin-top: 19%;">
+            <i class="las la-minus-circle minus" (click)="onDecrement()"></i><br><span class="editable"
+              contenteditable="true" 
+              value="amount"></span><strong>{{price}}</strong><br><i class="las la-plus-circle plus"
+              (click)="onIncrement()"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="modal fade modal fade bd-example-modal-sm" id="exampleModal1" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:brown">
+          <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Item Price</h1>
+          <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Total Items</div>
+
+            </div>
+            <span class="editable" contenteditable="true" style="font-weight: bold;">25</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Total Qty</div>
+
+            </div>
+            <span class="editable" contenteditable="true" style="font-weight: bold;">1</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Sub-Total</div>
+
+            </div>
+            <span class="editable" contenteditable="true" style="font-weight: bold;">₹ 2500</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Tax</div>
+
+            </div>
+            <span class="editable" contenteditable="true" style="font-weight: bold;">2%</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Discount</div>
+
+            </div>
+            <span class="editable" contenteditable="true" style="font-weight: bold;">20%</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold" style="font-size: 20px;"><strong>Grand Total:</strong></div>
+            </div>
+            <span class="editable" contenteditable="true" style="font-weight: bold;font-size: 20px;"><strong>₹
+                2500</strong></span>
+          </li>
+        </div>
+        <div class="show-inline-block" style="margin-bottom: 3%;">
+          <button type="button" class="btn btn-outline-danger btn-sm"
+            style="width: 19%;margin-left: 30%;font-weight: bold;color: black;">Add Extra</button><button type="button"
+            class="btn btn-outline-danger btn-sm"
+            style="width: 19%;margin-left: 2%;font-weight: bold;color: black;">Fast Billing</button>
+
+        </div>
+        <footer class="bg-light text-center text-lg-start">
+          <!-- Copyright -->
+          <div class="text-center p-1" style="background-color: brown;">
+
+            <p class="text-white" style="font-weight: bold;margin-top: 4%;cursor: pointer;font-size: 20px;"> Confirm and
+              Accept Payment <i class="las la-arrow-right"
+                style="margin-left: 2%;font-weight: bold;cursor: pointer;font-size: 20px;margin-top: 1%;"></i></p>
+          </div>
+          <!-- Copyright -->
+        </footer>
+
+      </div>
+    </div>
+  </div>
+
+</div>

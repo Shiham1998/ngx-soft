@@ -1,0 +1,105 @@
+
+.cll {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+mat-form-field {
+	margin-left: 10px;
+	margin-top: 20px;
+	width: 250px;
+}
+
+mat-checkbox {
+	margin-left: 70px;
+	margin-top: 20px;
+	width: 250px;
+}
+
+mat-label {
+	font-weight: bold;
+	font-size: 25px;
+	font-family: Robot;
+}
+
+.btn {
+	border-radius: 14px;
+	width: 250px;
+	height: 29px;
+	padding-bottom: 29px;
+}
+
+#button {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.navbar {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	background: #A11F21;
+	color: #F2F2F2;
+}
+
+input[type=search] {
+	background: white;
+	padding: 9px 10px 9px 32px;
+	width: 55px;
+}
+
+input[type=search]:focus {
+	width: 100px;
+	background-color: #ccc;
+}
+
+
+
+input {
+	font-family: Robot;
+	font-weight: bold;
+}
+
+.mat-stepper-vertical {
+	margin-top: 8px;
+}
+
+.mat-form-field {
+	margin-top: 16px;
+}
+
+button {
+	color: #A11F21;
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+button:hover {
+	background-color: rgb(177, 228, 248);
+	color: black;
+}
+
+mat-error {
+	font-size: 13px;
+}
+
+b {
+	font-size: 12pt;
+}
+
+.arrow {
+	font-size: 30px;
+	margin-right: 24px;
+	font-weight: bold;
+	float: left;
+}
+
+.brand {
+	color: white;
+	font-weight: bold;
+	margin-bottom: 19%;
+	font-size: 28px;
+	margin-left: 3%;
+}

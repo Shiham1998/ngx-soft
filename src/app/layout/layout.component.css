@@ -1,0 +1,196 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+mat-sidenav {
+  width: 280px;
+  padding: 15px;
+}
+
+.mat-drawer {
+  background-color: #023075;
+  color: #fff
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}
+
+h4 {
+  margin-top: 18px;
+}
+
+a i {
+  font-size: 30px;
+  color: #CC252C
+}
+
+body {
+  background: #eee;
+}
+
+a label:hover {
+  color: red;
+}
+
+#drp:hover {
+  color: red;
+}
+
+.billing {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.billing i {
+  margin-right: 24px;
+}
+
+.profile {
+  font-weight: bold;
+}
+
+.profile i {
+  margin-right: 24px;
+}
+
+.dropbtn {
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  margin-right: 54px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 10%;
+}
+
+i:hover {
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.user {
+  font-size: 30px;
+  cursor: pointer;
+  margin-right: 10px;
+  color: white;
+}
+
+.power {
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+.home {
+  font-size: 30px;
+  cursor: pointer;
+  margin-right: 10px;
+  color: white;
+}
+
+.print {
+  font-size: 30px;
+  cursor: pointer;
+  margin-right: 10px;
+  color: white;
+}
+
+#head1 {
+  font-family: Robot;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#head1::first-letter {
+
+  font-size: 35px;
+  font-family: Robot;
+  font-style: italic;
+}
+
+i a {
+  font-size: 20px;
+}
+
+i {
+  font-size: 24px;
+  color: red;
+}
+
+.menu {
+  font-size: 30px;
+  color: white;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  /* overflow-x: hidden;
+  overflow-x: hidden; */
+}
+
+li a:hover {
+  color: #A11F21;
+}
+
+.cogs {
+  font-size: 30px;
+  margin-left: 19px;
+  color: #A11F21;
+}
+
+ul li a {
+  color: grey;
+  font-weight: bold;
+
+}
+
+#app {
+  border: none;
+  margin-left: 29px;
+  color: black;
+  list-style: none;
+  display: none;
+  margin-top: 5%;
+}
+
+#prod {
+  border: none;
+  margin-left: 29px;
+  color: black;
+  list-style: none;
+  display: none;
+  margin-top: 5%
+}
+
+#staff {
+  border: none;
+  margin-left: 29px;
+  color: black;
+  list-style: none;
+  display: none;
+  margin-top: 5%
+}
+
+#client {
+  border: none;
+  margin-left: 29px;
+  color: black;
+  list-style: none;
+  display: none;
+  margin-top: 5%
+}

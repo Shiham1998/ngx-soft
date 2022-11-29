@@ -1,0 +1,89 @@
+<div>
+    <div>
+        <nav class="navbar" style="display: flex;">
+            <i class="las la-arrow-circle-left arrow" routerLink="/layout"
+            style="font-size: 30px;margin-right: 24px;font-weight: bold;float: left;"> 
+            <a class="navbar-brand"style="color: white;font-weight:bold;margin-bottom: 19%;font-size: 28px;margin-left: 3%;">{{_assignText}}</a></i>
+        </nav> 
+        <div *ngFor="let master of MasterListdata let i=index">
+            <div class="row justify-content-center" style="margin-top:10px;">
+              <div class="col-sm-6">
+                <div class="card shadow bg-white rounded">
+                  <div class="card-body" style="font-weight: bold;">
+                   <h5 class="card-title">
+                      <i class="las la-trash-alt" 
+                        data-toggle="modal" id="delete" href="#ConfirmModal" (click)="getDeleteid(master.id)">
+                      </i> 
+                      <i class="las la-pen" id="edit" routerLink="/addbrand/{{master.id}}" [queryParams]="{data:'B'}" data-toggle="modal" href="#Mastermodal" ></i> 
+                    </h5>
+                    <span class="card-text">S.No:</span><label id="brandid">{{i+1}}</label><br/>
+                    <span class="card-text">{{_assignText}} Name :</span><label id="brandname">{{master.name}}</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <a class="float">
+        <i class="la la-plus my-float"  data-toggle="modal" id="edit1" href="#Mastermodal" routerLink="/addbrand" [queryParams]="{data:'B'}" ></i>
+      </a>
+      <div class="modal fade modal fade bd-example-modal-sm" id="Mastermodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                <div *ngIf="addMode; else editable">
+                  <div class="modal-header" style="background-color:brown">
+                    <h1  class="modal-title fs-5 text-white" id="exampleModalLabel">Add {{_assignText}}</h1>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <button type="button" class="btn bg-white" (click)="savemasters()" data-dismiss="modal" ><i class="fa fa-check" style="color:forestgreen ;"></i></button>
+                    <button  type="button" class="btn bg-white" data-dismiss="modal" style="color: maroon;font-weight: bold;">X</button>
+                    </div>
+                </div>
+                  <form  [formGroup]="fg_Masters" class="was-validated">
+                          <mat-form-field class="lengthinput">
+                              <mat-label>{{_assignText}} name</mat-label>
+                              <input matInput formControlName="name"  required/>
+                          </mat-form-field><br/>
+                  </form>
+              </div>
+                </div>
+                <ng-template  #editable>
+                  <div>
+                    <div class="modal-header" style="background-color:brown">
+                      <h1  class="modal-title fs-5 text-white" id="exampleModalLabel">Edit {{_assignText}}</h1>
+                      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                      <button type="button" class="btn bg-white" (click)="UpdateMaster()" data-dismiss="modal" ><i class="fa fa-check" style="color:forestgreen ;"></i></button>
+                      <button  type="button" class="btn bg-white" data-dismiss="modal" style="color: maroon;font-weight: bold;">X</button>
+                      </div>
+                  </div>
+                      <form  [formGroup]="fg_Masters" class="was-validated">
+                              <mat-form-field class="lengthinput">
+                                  <mat-label>Brand name</mat-label>
+                                  <input matInput formControlName="name"  required/>
+                              </mat-form-field><br/>
+                      </form>
+                  </div>
+              </ng-template>
+            </div>
+         </div>
+     </div>
+</div>
+<div id="ConfirmModal" class="modal">
+  <div class="modal-dialog modal-dialog-centered" >
+    <div class="modal-content">
+      <div class="modal-header flex-column" data-target=".bd-example-modal-sm">
+        <h3 class="modal-title" style="display: flex;"><i class="las la-exclamation-triangle" id="dangericon"></i> Are you sure? </h3>
+      </div>
+      <div class="modal-body">
+        <p>Do you really want to delete <strong id="productname"></strong> record? </p>
+        <p>This process cannot be undone.</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><b>Cancel</b></button>
+        <button type="btn" class="btn btn-outline-danger"
+          data-toggle="modal" data-target="#SuccessModalDelete" data-dismiss="modal"
+          style="background-color: #A11F21;" (click)="DeleteMaster(_getMasterId)"><b>Delete</b></button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,423 @@
+<div>
+    <div *ngIf="addMode">
+        <nav class="navbar" style="display: flex;">
+          <i class="las la-arrow-circle-left arrow"  routerLink="/staff" style="font-size: 30px;margin-right: 24px;font-weight: bold;float: left;"> <a class="navbar-brand"  style="color: white;font-weight:bold;margin-bottom: 19%;font-size: 28px;margin-left: 3%;">Add Staff Information</a></i>
+            <form class="form-inline" style="float: right;font-size: 20px;" >        
+          </form>
+        </nav>
+       </div> 
+       <div *ngIf="!addMode" >
+        <nav class="navbar" style="display: flex;">
+          <i class="las la-arrow-circle-left arrow" routerLink="/staff" style="font-size: 30px;margin-right: 24px;font-weight: bold;float: left;"> <a class="navbar-brand"  style="color: white;font-weight:bold;margin-bottom: 19%;font-size: 28px;margin-left: 3%;">Edit Staff Information</a></i>
+            <form class="form-inline" style="float: right;font-size: 20px;" >        
+          </form>
+        </nav>
+       </div> 
+       <div class="cll" *ngIf="addMode; else editable">
+        <mat-stepper orientation="vertical" #stepper>
+          <mat-step [stepControl]="fg_staffdetails">
+            <form [formGroup]="fg_staffdetails">
+            <ng-template matStepLabel ><b>Staff Information</b></ng-template>
+            <mat-form-field appearance="legacy">
+              <mat-label>Joining Date</mat-label>
+              <input type="date" matInput id="joining date" formControlName="joining_date" />
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+              <mat-label>Referred By</mat-label>
+              <b>
+                <mat-select  formControlName="referred_by">
+                  <b>
+                    <mat-option value="test1"> test1</mat-option>
+                    <mat-option value="test2">test2 </mat-option>
+                  </b>
+                </mat-select>
+              </b> 
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+              <mat-label>Designation</mat-label>
+              <b>
+                <mat-select formControlName="designation">
+                  <b>
+                    <mat-option value="test3">test3 </mat-option>
+                    <mat-option value="test4">test4</mat-option>
+                  </b>
+                </mat-select>
+              </b> 
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+              <mat-label>Department</mat-label>
+              <b>
+                <mat-select formControlName="department">
+                  <b>
+                    <mat-option value="test5">test5 </mat-option>
+                    <mat-option value="test6">test6</mat-option>
+                  </b>
+                </mat-select>
+              </b> 
+            </mat-form-field>
+            </form>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+          <mat-step [stepControl]="fg_staffdetails">
+            <form [formGroup]="fg_staffdetails">
+              <ng-template matStepLabel ><b>Personal Information</b></ng-template>
+              <mat-form-field appearance="legacy">
+                <mat-label>Full Name</mat-label>
+                <input matInput  required formControlName="fullname" />
+              </mat-form-field>
+
+              <mat-form-field appearance="legacy">
+                <mat-label>Gender</mat-label>
+                <b>
+                  <mat-select formControlName="gender" >
+                    <b>
+                      <mat-option value="male">Male </mat-option>
+                      <mat-option value="female"> Female</mat-option>
+                    </b>
+                  </mat-select>
+                </b> 
+              </mat-form-field>
+             <mat-form-field appearance="legacy">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="address" required/>
+              </mat-form-field>
+
+              <mat-form-field appearance="legacy">
+                <mat-label>Email ID</mat-label>
+                <input type="email" matInput formControlName="email_id" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$">
+              </mat-form-field><br/>
+
+              <mat-form-field appearance="legacy">
+                <mat-label>Mobile No.</mat-label>
+                <input matInput  formControlName="mobile_no" />
+              </mat-form-field>
+
+              <mat-form-field appearance="legacy">
+                <mat-label>Date Of Birth</mat-label>
+                <input type="date" matInput id="date" formControlName="DOB"/>
+              </mat-form-field>
+
+              <mat-checkbox style="margin-left:10px;" checked="true" (change)=" checkCheckBoxvalue($event,1)">Applicable</mat-checkbox> 
+              <mat-form-field appearance="legacy">
+              <mat-label >Anniversary Date</mat-label>
+              <input matInput type="date" id="date1" formControlName="anniversary_date" />
+              </mat-form-field>
+            
+            </form>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+          <mat-step [stepControl]="fg_staffdetails">
+            <form [formGroup]="fg_staffdetails">
+              <ng-template matStepLabel ><b>Emergency Contact</b></ng-template>
+              <mat-form-field appearance="legacy">
+                <mat-label>Contact person</mat-label>
+                <input matInput  required formControlName="contact_person"/>
+              </mat-form-field>
+
+              <mat-form-field appearance="legacy">
+                <mat-label>Contact No.</mat-label>
+                <input matInput  required  formControlName="contact_no"/>
+              </mat-form-field>
+             <mat-form-field appearance="legacy">
+                <mat-label>Blood Group</mat-label>
+                <b>
+                  <mat-select formControlName="blood_group">
+                    <b>
+                      <mat-option value="A+">A </mat-option>
+                      <mat-option value="B+"> B+</mat-option>
+                    </b>
+                  </mat-select>
+                </b> 
+              </mat-form-field>
+            </form>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+
+          <mat-step [stepControl]="fg_staffdetails">
+            <form [formGroup]="fg_staffdetails">
+              <ng-template matStepLabel ><b>Identity Details</b></ng-template>
+              <mat-form-field appearance="legacy">
+                <mat-label>Document Type</mat-label>
+                <b>
+                  <mat-select formControlName="doctype" >
+                    <b>
+                    <mat-option value=".pdf">.pdf</mat-option>
+                    <mat-option value=".doc">.doc</mat-option>
+                    </b>
+                  </mat-select>
+                </b>
+              </mat-form-field>
+
+              <mat-form-field appearance="legacy">
+                <mat-label>Document No.</mat-label>
+                <input matInput  formControlName="docno"/>
+              </mat-form-field>
+              <mat-checkbox checked="true" (change)=" checkCheckBoxvalue($event,2)" >Applicable</mat-checkbox> 
+              <mat-form-field appearance="legacy">
+              <mat-label>Expiry / Issue Date</mat-label>
+              <input matInput type="date" id="date2" formControlName="expiryissue_date" />
+              </mat-form-field>
+            </form>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+
+          <mat-step [stepControl]="fg_staffdetails">
+            <form [formGroup]="fg_staffdetails">
+              <ng-template matStepLabel ><b>Other Details</b></ng-template>
+                <mat-form-field>
+                  <mat-label>Communication</mat-label>
+                  <mat-select (openedChange)="comboChange($event)" [formControl]="communicationmode" multiple>
+                    <mat-option *ngFor="let mode of communicationmodes" [value]="mode">{{mode}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+              <mat-form-field appearance="legacy">
+                <mat-label>Sales Commission</mat-label>
+                <b>
+                  <mat-select formControlName="sales_commission" >
+                    <b>
+                    <mat-option value="yes">Yes</mat-option>
+                    <mat-option value="no">No</mat-option>
+                    </b>
+                  </mat-select>
+                </b>
+              </mat-form-field>
+             
+              <mat-form-field appearance="legacy">
+              <mat-label>Remark / Note</mat-label>
+              <input matInput formControlName="remarknote" />
+              </mat-form-field>
+            </form>
+          </mat-step>
+
+          <mat-step>
+            <ng-template matStepLabel><b>Done</b></ng-template>
+            <p class="cll">You are now done.</p>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button (click)="stepper.reset()">Reset</button>
+              <button mat-button [disabled]="fg_staffdetails.invalid" (click)="Savestaff()">Save</button>
+              <p style="color: green;"></p>
+            </div>
+      </mat-step>
+    </mat-stepper>
+  </div> 
+       
+
+<!---------------------------------------------------------- editable--------------------------------------------->
+
+<ng-template #editable>
+  <div class="cll">
+    <mat-stepper orientation="vertical" #stepper>
+      
+      <mat-step [stepControl]="fg_staffdetails">
+        <form [formGroup]="fg_staffdetails">
+        <ng-template matStepLabel ><b>Staff Information</b></ng-template>
+        <mat-form-field appearance="legacy">
+          <mat-label>Joining Date</mat-label>
+          <input type="date" matInput id="joiningdate" formControlName="joining_date"/>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>Referred By</mat-label>
+          <b>
+            <mat-select  formControlName="referred_by">
+              <b>
+                <mat-option value="test1"> test1</mat-option>
+                <mat-option value="test2">test2 </mat-option>
+              </b>
+            </mat-select>
+          </b> 
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>Designation</mat-label>
+          <b>
+            <mat-select  formControlName="designation">
+              <b>
+                <mat-option value="test3">test3 </mat-option>
+                <mat-option value="test4"> test4</mat-option>
+              </b>
+            </mat-select>
+          </b> 
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>Department</mat-label>
+          <b>
+            <mat-select  formControlName="department">
+              <b>
+                <mat-option value="test5">test5 </mat-option>
+                <mat-option value="test6"> test6</mat-option>
+              </b>
+            </mat-select>
+          </b> 
+        </mat-form-field>
+        </form>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step [stepControl]="fg_staffdetails">
+        <form [formGroup]="fg_staffdetails">
+          <ng-template matStepLabel ><b>Personal Information</b></ng-template>
+          <mat-form-field appearance="legacy">
+            <mat-label>Full Name</mat-label>
+            <input matInput  formControlName="fullname" required />
+          </mat-form-field>
+
+          <mat-form-field appearance="legacy">
+            <mat-label>Gender</mat-label>
+            <b>
+              <mat-select  formControlName="gender">
+                <b>
+                  <mat-option value="male">Male </mat-option>
+                  <mat-option value="female"> Female</mat-option>
+                </b>
+              </mat-select>
+            </b> 
+          </mat-form-field>
+         <mat-form-field appearance="legacy">
+            <mat-label>Address</mat-label>
+            <input matInput  formControlName="address" required/>
+          </mat-form-field>
+
+          <mat-form-field appearance="legacy">
+            <mat-label>Email ID</mat-label>
+            <input type="email" matInput  pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" formControlName="email_id">
+          </mat-form-field><br/>
+
+          <mat-form-field appearance="legacy">
+            <mat-label>Mobile No.</mat-label>
+            <input matInput  formControlName="mobile_no" />
+          </mat-form-field>
+
+          <mat-form-field appearance="legacy">
+            <mat-label>Date Of Birth</mat-label>
+            <input type="date" matInput id="date" formControlName="DOB"/>
+          </mat-form-field>
+
+          <mat-checkbox  style="margin-left:10px;" checked="true" (change)=" checkCheckBoxvalue($event,1)" >Applicable</mat-checkbox> 
+          <mat-form-field appearance="legacy">
+          <mat-label>Anniversary Date</mat-label>
+          <input matInput type="date" id="date1"  formControlName="anniversary_date"/>
+          </mat-form-field>
+        </form>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step [stepControl]="fg_staffdetails">
+        <form [formGroup]="fg_staffdetails">
+          <ng-template matStepLabel ><b>Emergency Contact</b></ng-template>
+          <mat-form-field appearance="legacy">
+            <mat-label>Contact person</mat-label>
+            <input matInput  formControlName="contact_person" required/>
+          </mat-form-field>
+
+          <mat-form-field appearance="legacy">
+            <mat-label>Contact No.</mat-label>
+            <input matInput  formControlName="contact_no" required/>
+          </mat-form-field>
+         <mat-form-field appearance="legacy">
+            <mat-label>Blood Group</mat-label>
+            <b>
+              <mat-select formControlName="blood_group">
+                <b>
+                  <mat-option value="A+">A </mat-option>
+                  <mat-option value="B+"> B+</mat-option>
+                </b>
+              </mat-select>
+            </b> 
+          </mat-form-field>
+        </form>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step [stepControl]="fg_staffdetails">
+        <form [formGroup]="fg_staffdetails">
+          <ng-template matStepLabel ><b>Identity Details</b></ng-template>
+          <mat-form-field appearance="legacy">
+            <mat-label>Document Type</mat-label>
+            <b>
+              <mat-select  formControlName="doctype">
+                <b>
+                <mat-option value=".pdf">.pdf</mat-option>
+                <mat-option value=".doc">.doc</mat-option>
+                </b>
+              </mat-select>
+            </b>
+          </mat-form-field>
+
+          <mat-form-field appearance="legacy">
+            <mat-label>Document No.</mat-label>
+            <input matInput  formControlName="docno"/>
+          </mat-form-field>
+          <mat-checkbox checked="true" (change)=" checkCheckBoxvalue($event,2)">Applicable</mat-checkbox> 
+          <mat-form-field appearance="legacy">
+          <mat-label>Expiry / Issue Date</mat-label>
+          <input matInput type="date" id="date2" formControlName="expiryissue_date" />
+          </mat-form-field>
+        </form>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step [stepControl]="fg_staffdetails">
+        <form [formGroup]="fg_staffdetails">
+          <ng-template matStepLabel ><b>Other Details</b></ng-template>
+          <mat-form-field>
+            <mat-label>Communication</mat-label>
+            <mat-select (openedChange)="comboChange($event)" formControlName="communicationmode" multiple>
+              <mat-option *ngFor="let mode of communicationmodes" [value]="mode">{{mode}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+
+          <mat-form-field appearance="legacy" >
+            <mat-label>Sales Commission</mat-label>
+            <input matInput  formControlName="sales_commission"/>
+          </mat-form-field>
+         
+          <mat-form-field appearance="legacy">
+            <mat-label>Remark / Note</mat-label>
+            <input matInput formControlName="remarknote" />
+            </mat-form-field>
+        </form>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel><b>Done</b></ng-template>
+        <p class="cll">You are now done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button [disabled]="fg_staffdetails.invalid" (click)="UpdatestaffByid()">Edit</button>
+          <p style="color: green;"></p>
+        </div>
+    </mat-step>
+    </mat-stepper>
+  </div>
+  </ng-template>
+</div>

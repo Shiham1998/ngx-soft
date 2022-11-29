@@ -1,0 +1,101 @@
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background: #A11F21;
+    color: #f2f2f2;
+  }
+.legendinline{
+    margin:2rem;
+}
+  fieldset {
+    border: 2px solid #A11F21 !important;
+}
+  legend{
+    border: 2px solid #A11F21;
+    font-size: large;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+ .heading{
+  margin-right: 2rem;
+  font-weight: bold;
+}
+:host {
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  margin-right: 80px;
+}
+mat-form-field{
+  margin-left: 70px;
+  margin-top: 20px;
+  width: 250px;
+}
+.was-validated{
+ font-weight: bold;
+ font-size: 25px;
+}
+.submit-form{
+ font-weight: bold;
+ font-size: 25px;
+}
+mat-label{
+  font-weight: bold;
+   font-size: 30px;
+   font-family: Robot;
+ }
+ .float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    background-color:rgb(124, 1, 1);
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+      margin-left: 100px;
+      margin-top: 150px;
+  }
+  .my-float{
+    margin-top:22px;
+  }
+  .modal-confirm {
+    color: #636363;
+    width: 500px;
+  }
+  .card-body{
+    font-family: Robot;
+    font-size: 16pt;
+  }
+  .card-title{
+    color:rgb(58, 91, 238);
+  }
+  .card-body:hover{
+    box-shadow: 0 25px 30px rgba(163, 1, 1, 0.4)   
+  }
+  #delete{
+    float:right;
+    color:#CC252C;
+    font-size: 30px;
+    font-weight:bold;
+    cursor: pointer;
+  }
+  #edit{
+    float:right;
+    color:#CC252C;
+    font-size: 30px;
+    font-weight:bold;
+    cursor: pointer;
+  }
+ .addicon{
+  font-size: 40px;
+  font-weight: bold;
+ }
+ 
+ 
